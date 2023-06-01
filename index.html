@@ -84,7 +84,7 @@
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      axios.get('https://graph.microsoft.com/v1.0/drives/{drive-id}/items/s!Akyk6Z-UphqdgjSTqzaSqiHKYk1A/workbook/worksheets('Sheet1')/tables('Sheet1')/rows')
+      axios.get('https://graph.microsoft.com/v1.0/drives/9D1AA6949FE9A44C/items/s!Akyk6Z-UphqdgjSTqzaSqiHKYk1A/workbook/worksheets('Sheet1')/tables('Sheet1')/rows')
         .then(function (response) {
           var data = response.data.value;
           var timeA = parseInt(data[0].values[0][1]);
