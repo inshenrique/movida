@@ -72,26 +72,22 @@
       <span class="placar"><span id="timeA" class="time-empatado"></span></span>
       <span>X</span>
       <span class="placar"><span id="timeB" class="time-empatado"></span></span>
-      <span id="nomeTimeB" class="time-empatado nome-time">Time Mobi</span>
+      <span id="nomeTimeB" class="time-empatado nome-time">Time Mobis</span>
       <img src="imagens/mobi.png" alt="Time Mobi" class="time-logo">
     </h2>
   </div>
 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
     function drawChart() {
-      fetch('https://graph.microsoft.com/v1.0/drives/9D1AA6949FE9A44C/items/Akyk6Z-UphqdgjSTqzaSqiHKYk1A/workbook/tables/Sheet1/rows')
-        .then(function(response) {
-          if (!response.ok) {
-            throw new Error('Erro ao obter os dados do placar');
-          }
-          return response.json();
-        })
-        .then(function(data) {
-          var timeA = parseInt(data.value[0].values[0][1]);
-          var timeB = parseInt(data.value[0].values[1][1]);
+      axios.get('https://graph.microsoft.com/v1.0/drives/9D1AA6949FE9A44C/items/Akyk6Z-UphqdgjSTqzaSqiHKYk1A/workbook/tables/dados/rows')
+        .then(function (response) {
+          var data = response.data.value;
+          var timeA = parseInt(data[0].values[0][1]);
+          var timeB = parseInt(data[0].values[1][1]);
 
           document.getElementById('timeA').textContent = timeA;
           document.getElementById('timeB').textContent = timeB;
@@ -114,7 +110,7 @@
             document.getElementById('timeB').className = 'time-empatado';
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.error(error);
         });
     }

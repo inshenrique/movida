@@ -6,3 +6,10 @@ https://1drv.ms/x/s!Akyk6Z-UphqdgjSTqzaSqiHKYk1A?e=OehYz5
 
 pasta
 https://1drv.ms/f/s!Akyk6Z-Uphqdgjl2jjO-KsTOK1B5?e=mH9T8R
+
+
+{drive-id} 9D1AA6949FE9A44C
+{item-id} Akyk6Z-UphqdgjSTqzaSqiHKYk1A
+{table-name} dados
+
+O resultado do Time A na planilha está em B2 e o resultado do Time B está em B3
